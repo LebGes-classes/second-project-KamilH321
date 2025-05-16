@@ -1,0 +1,99 @@
+[ {
+  "id" : 1,
+  "address" : "ул. Ленина, 10",
+  "countOfWarehouseCells" : 5,
+  "income" : 2739830.0,
+  "warehouseCells" : [ {
+    "id" : 1,
+    "category" : "Смартфоны",
+    "quantity" : 3,
+    "products" : [ {
+      "id" : 1,
+      "idOfCell" : 1,
+      "name" : "Айфон 13",
+      "price" : 79990.0,
+      "quantity" : 5,
+      "category" : "Смартфоны"
+    }, {
+      "id" : 2,
+      "idOfCell" : 1,
+      "name" : "Samsung Galaxy S23",
+      "price" : 69990.0,
+      "quantity" : 5,
+      "category" : "Смартфоны"
+    } ]
+  }, {
+    "id" : 2,
+    "category" : "Ноутбуки",
+    "quantity" : 2,
+    "products" : [ {
+      "id" : 3,
+      "idOfCell" : 2,
+      "name" : "MacBook Pro M2",
+      "price" : 149990.0,
+      "quantity" : 3,
+      "category" : "Ноутбуки"
+    }, {
+      "id" : 4,
+      "idOfCell" : 2,
+      "name" : "Dell XPS 15",
+      "price" : 120000.0,
+      "quantity" : 2,
+      "category" : "Ноутбуки"
+    } ]
+  }, {
+    "id" : 3,
+    "category" : "Телевизоры",
+    "quantity" : 2,
+    "products" : [ {
+      "id" : 5,
+      "idOfCell" : 3,
+      "name" : "Sony Bravia 55",
+      "price" : 89990.0,
+      "quantity" : 4,
+      "category" : "Телевизоры"
+    }, {
+      "id" : 6,
+      "idOfCell" : 3,
+      "name" : "LG OLED 65",
+      "price" : 119990.0,
+      "quantity" : 2,
+      "category" : "Телевизоры"
+    } ]
+  }, {
+    "id" : 4,
+    "category" : "Наушники",
+    "quantity" : 1,
+    "products" : [ {
+      "id" : 7,
+      "idOfCell" : 4,
+      "name" : "AirPods Pro",
+      "price" : 24990.0,
+      "quantity" : 10,
+      "category" : "Наушники"
+    } ]
+  }, {
+    "id" : 5,
+    "category" : "Планшеты",
+    "quantity" : 1,
+    "products" : [ {
+      "id" : 8,
+      "idOfCell" : 5,
+      "name" : "iPad Air",
+      "price" : 49990.0,
+      "quantity" : 2,
+      "category" : "Планшеты"
+    } ]
+  } ],
+  "responsiblePerson" : {
+    "fio" : "Иванов Иван Иванович",
+    "post" : "Менеджер склада"
+  },
+  "employees" : [ {
+    "fio" : "Иванов Иван Иванович",
+    "post" : "Менеджер склада"
+  }, {
+    "fio" : "Сидоров Алексей Владимирович",
+    "post" : "Грузчик"
+  } ]
+} ]

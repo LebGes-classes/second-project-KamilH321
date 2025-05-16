@@ -1,0 +1,179 @@
+[ {
+  "id" : 1,
+  "address" : "ул. Пушкина, 5",
+  "name" : "ТехноМир",
+  "countOfSalePointCells" : 3,
+  "income" : 1.2062011E8,
+  "salePointCells" : [ {
+    "id" : 1,
+    "category" : "Смартфоны",
+    "quantity" : 2,
+    "products" : [ {
+      "id" : 1,
+      "idOfCell" : 1,
+      "name" : "Айфон 13",
+      "price" : 79990.0,
+      "quantity" : 13,
+      "category" : "Смартфоны"
+    }, {
+      "id" : 2,
+      "idOfCell" : 1,
+      "name" : "Samsung Galaxy S22",
+      "price" : 89990.0,
+      "quantity" : 8,
+      "category" : "Смартфоны"
+    } ]
+  }, {
+    "id" : 2,
+    "category" : "Ноутбуки",
+    "quantity" : 2,
+    "products" : [ {
+      "id" : 3,
+      "idOfCell" : 2,
+      "name" : "MacBook Pro 14",
+      "price" : 149990.0,
+      "quantity" : 5,
+      "category" : "Ноутбуки"
+    }, {
+      "id" : 1,
+      "idOfCell" : 2,
+      "name" : "Айфон 13",
+      "price" : 79990.0,
+      "quantity" : 1,
+      "category" : "Смартфоны"
+    } ]
+  } ],
+  "responsiblePerson" : {
+    "fio" : "Петрова Анна Сергеевна",
+    "post" : "Кассир"
+  },
+  "employees" : [ {
+    "fio" : "Петрова Анна Сергеевна",
+    "post" : "Кассир"
+  }, {
+    "fio" : "Кузнецова Елена Дмитриевна",
+    "post" : "Администратор"
+  } ]
+}, {
+  "id" : 2,
+  "address" : "пр. Ленина, 10",
+  "name" : "Электрон",
+  "countOfSalePointCells" : 2,
+  "income" : 8.494502E7,
+  "salePointCells" : [ {
+    "id" : 1,
+    "category" : "Телевизоры",
+    "quantity" : 1,
+    "products" : [ {
+      "id" : 4,
+      "idOfCell" : 1,
+      "name" : "LG OLED C1",
+      "price" : 99990.0,
+      "quantity" : 7,
+      "category" : "Телевизоры"
+    } ]
+  }, {
+    "id" : 2,
+    "category" : "Аксессуары",
+    "quantity" : 2,
+    "products" : [ {
+      "id" : 5,
+      "idOfCell" : 2,
+      "name" : "Чехол для iPhone",
+      "price" : 1990.0,
+      "quantity" : 25,
+      "category" : "Аксессуары"
+    }, {
+      "id" : 6,
+      "idOfCell" : 2,
+      "name" : "Наушники AirPods Pro",
+      "price" : 24990.0,
+      "quantity" : 12,
+      "category" : "Аксессуары"
+    }, {
+      "id" : 8,
+      "idOfCell" : 2,
+      "name" : "iPad Air",
+      "price" : 49990.0,
+      "quantity" : 2,
+      "category" : "Планшеты"
+    } ]
+  } ],
+  "responsiblePerson" : {
+    "fio" : "Сидоров Алексей Владимирович",
+    "post" : "Менеджер"
+  },
+  "employees" : [ {
+    "fio" : "Сидоров Алексей Владимирович",
+    "post" : "Менеджер"
+  }, {
+    "fio" : "Иванова Мария Петровна",
+    "post" : "Консультант"
+  } ]
+}, {
+  "id" : 3,
+  "address" : "ул. Гагарина, 15",
+  "name" : "ГаджетХаб",
+  "countOfSalePointCells" : 2,
+  "income" : 5.276104E7,
+  "salePointCells" : [ {
+    "id" : 1,
+    "category" : "Планшеты",
+    "quantity" : 1,
+    "products" : [ {
+      "id" : 7,
+      "idOfCell" : 1,
+      "name" : "iPad Air",
+      "price" : 64990.0,
+      "quantity" : 6,
+      "category" : "Планшеты"
+    }, {
+      "id" : 8,
+      "idOfCell" : 1,
+      "name" : "Samsung Tab S8",
+      "price" : 54990.0,
+      "quantity" : 4,
+      "category" : "Планшеты"
+    } ]
+  }, {
+    "id" : 2,
+    "category" : "Умные часы",
+    "quantity" : 3,
+    "products" : [ {
+      "id" : 9,
+      "idOfCell" : 2,
+      "name" : "Apple Watch Series 7",
+      "price" : 39990.0,
+      "quantity" : 9,
+      "category" : "Умные часы"
+    }, {
+      "id" : 8,
+      "idOfCell" : 2,
+      "name" : "iPad Air",
+      "price" : 49990.0,
+      "quantity" : 2,
+      "category" : "Планшеты"
+    }, {
+      "id" : 1,
+      "idOfCell" : 2,
+      "name" : "Айфон 13",
+      "price" : 79990.0,
+      "quantity" : 2,
+      "category" : "Смартфоны"
+    } ]
+  } ],
+  "responsiblePerson" : {
+    "fio" : "Козлов Дмитрий Сергеевич",
+    "post" : "Директор"
+  },
+  "employees" : [ {
+    "fio" : "Козлов Дмитрий Сергеевич",
+    "post" : "Директор"
+  }, {
+    "fio" : "Федорова Ольга Игоревна",
+    "post" : "Продавец"
+  }, {
+    "fio" : "Николаев Артем Валерьевич",
+    "post" : "Технический специалист"
+  } ]
+} ]
