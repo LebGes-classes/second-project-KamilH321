@@ -2,7 +2,7 @@
   "id" : 1,
   "address" : "ул. Ленина, 10",
   "countOfWarehouseCells" : 5,
-  "income" : 2739830.0,
+  "income" : 3015820.0,
   "warehouseCells" : [ {
     "id" : 1,
     "category" : "Смартфоны",
@@ -12,7 +12,7 @@
       "idOfCell" : 1,
       "name" : "Айфон 13",
       "price" : 79990.0,
-      "quantity" : 5,
+      "quantity" : 4,
       "category" : "Смартфоны"
     }, {
       "id" : 2,
@@ -44,15 +44,8 @@
   }, {
     "id" : 3,
     "category" : "Телевизоры",
-    "quantity" : 2,
+    "quantity" : 1,
     "products" : [ {
-      "id" : 5,
-      "idOfCell" : 3,
-      "name" : "Sony Bravia 55",
-      "price" : 89990.0,
-      "quantity" : 4,
-      "category" : "Телевизоры"
-    }, {
       "id" : 6,
       "idOfCell" : 3,
       "name" : "LG OLED 65",
@@ -75,7 +68,7 @@
   }, {
     "id" : 5,
     "category" : "Планшеты",
-    "quantity" : 1,
+    "quantity" : 3,
     "products" : [ {
       "id" : 8,
       "idOfCell" : 5,
@@ -83,6 +76,20 @@
       "price" : 49990.0,
       "quantity" : 2,
       "category" : "Планшеты"
+    }, {
+      "id" : 1,
+      "idOfCell" : 5,
+      "name" : "Айфон 13",
+      "price" : 79990.0,
+      "quantity" : 2,
+      "category" : "Смартфоны"
+    }, {
+      "id" : 5,
+      "idOfCell" : 5,
+      "name" : "Чехол для iPhone",
+      "price" : 1990.0,
+      "quantity" : 2,
+      "category" : "Аксессуары"
     } ]
   } ],
   "responsiblePerson" : {
@@ -93,7 +100,89 @@
     "fio" : "Иванов Иван Иванович",
     "post" : "Менеджер склада"
   }, {
-    "fio" : "Сидоров Алексей Владимирович",
+    "fio" : "ХасановКамиль",
+    "post" : "Грузчик"
+  } ]
+}, {
+  "id" : 2,
+  "address" : "ул. Пушкина, 15",
+  "countOfWarehouseCells" : 4,
+  "income" : 1850000.0,
+  "warehouseCells" : [ {
+    "id" : 1,
+    "category" : "Бытовая техника",
+    "quantity" : 2,
+    "products" : [ {
+      "id" : 9,
+      "idOfCell" : 1,
+      "name" : "Холодильник Samsung",
+      "price" : 89990.0,
+      "quantity" : 3,
+      "category" : "Бытовая техника"
+    }, {
+      "id" : 10,
+      "idOfCell" : 1,
+      "name" : "Стиральная машина LG",
+      "price" : 54990.0,
+      "quantity" : 2,
+      "category" : "Бытовая техника"
+    } ]
+  }, {
+    "id" : 2,
+    "category" : "Игровые консоли",
+    "quantity" : 1,
+    "products" : [ {
+      "id" : 11,
+      "idOfCell" : 2,
+      "name" : "PlayStation 5",
+      "price" : 69990.0,
+      "quantity" : 4,
+      "category" : "Игровые консоли"
+    } ]
+  }, {
+    "id" : 3,
+    "category" : "Фототехника",
+    "quantity" : 1,
+    "products" : [ {
+      "id" : 12,
+      "idOfCell" : 3,
+      "name" : "Canon EOS R6",
+      "price" : 159990.0,
+      "quantity" : 2,
+      "category" : "Фототехника"
+    } ]
+  }, {
+    "id" : 4,
+    "category" : "Аксессуары",
+    "quantity" : 2,
+    "products" : [ {
+      "id" : 13,
+      "idOfCell" : 4,
+      "name" : "Рюкзак для ноутбука",
+      "price" : 4990.0,
+      "quantity" : 5,
+      "category" : "Аксессуары"
+    }, {
+      "id" : 14,
+      "idOfCell" : 4,
+      "name" : "Беспроводная мышь",
+      "price" : 2990.0,
+      "quantity" : 8,
+      "category" : "Аксессуары"
+    } ]
+  } ],
+  "responsiblePerson" : {
+    "fio" : "Петрова Анна Сергеевна",
+    "post" : "Администратор склада"
+  },
+  "employees" : [ {
+    "fio" : "Петрова Анна Сергеевна",
+    "post" : "Администратор склада"
+  }, {
+    "fio" : "Кузнецов Дмитрий Олегович",
+    "post" : "Кладовщик"
+  }, {
+    "fio" : "Смирнова Елена Викторовна",
     "post" : "Грузчик"
   } ]
 } ]

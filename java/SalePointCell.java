@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SalePointCell {
     private int id;
@@ -14,7 +15,8 @@ public class SalePointCell {
     private boolean isEnough = true;
 
     public SalePointCell(){
-        this.id = 0;
+        Random random = new Random();
+        this.id = random.nextInt(100);
         this.category = null;
         this.quantity = 0;
         this.products = new ArrayList<>();

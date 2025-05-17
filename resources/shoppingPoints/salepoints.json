@@ -3,7 +3,7 @@
   "address" : "ул. Пушкина, 5",
   "name" : "ТехноМир",
   "countOfSalePointCells" : 3,
-  "income" : 1.2062011E8,
+  "income" : 1.207001E8,
   "salePointCells" : [ {
     "id" : 1,
     "category" : "Смартфоны",
@@ -26,7 +26,7 @@
   }, {
     "id" : 2,
     "category" : "Ноутбуки",
-    "quantity" : 2,
+    "quantity" : 1,
     "products" : [ {
       "id" : 3,
       "idOfCell" : 2,
@@ -34,13 +34,6 @@
       "price" : 149990.0,
       "quantity" : 5,
       "category" : "Ноутбуки"
-    }, {
-      "id" : 1,
-      "idOfCell" : 2,
-      "name" : "Айфон 13",
-      "price" : 79990.0,
-      "quantity" : 1,
-      "category" : "Смартфоны"
     } ]
   } ],
   "responsiblePerson" : {
@@ -53,13 +46,16 @@
   }, {
     "fio" : "Кузнецова Елена Дмитриевна",
     "post" : "Администратор"
+  }, {
+    "fio" : "ХасановКамиль",
+    "post" : "Админ"
   } ]
 }, {
   "id" : 2,
   "address" : "пр. Ленина, 10",
   "name" : "Электрон",
   "countOfSalePointCells" : 2,
-  "income" : 8.494502E7,
+  "income" : 8.5045E7,
   "salePointCells" : [ {
     "id" : 1,
     "category" : "Телевизоры",
@@ -75,7 +71,7 @@
   }, {
     "id" : 2,
     "category" : "Аксессуары",
-    "quantity" : 2,
+    "quantity" : 1,
     "products" : [ {
       "id" : 5,
       "idOfCell" : 2,
@@ -90,13 +86,6 @@
       "price" : 24990.0,
       "quantity" : 12,
       "category" : "Аксессуары"
-    }, {
-      "id" : 8,
-      "idOfCell" : 2,
-      "name" : "iPad Air",
-      "price" : 49990.0,
-      "quantity" : 2,
-      "category" : "Планшеты"
     } ]
   } ],
   "responsiblePerson" : {
@@ -115,7 +104,7 @@
   "address" : "ул. Гагарина, 15",
   "name" : "ГаджетХаб",
   "countOfSalePointCells" : 2,
-  "income" : 5.276104E7,
+  "income" : 5.3021E7,
   "salePointCells" : [ {
     "id" : 1,
     "category" : "Планшеты",
@@ -138,7 +127,7 @@
   }, {
     "id" : 2,
     "category" : "Умные часы",
-    "quantity" : 3,
+    "quantity" : 1,
     "products" : [ {
       "id" : 9,
       "idOfCell" : 2,
@@ -146,20 +135,6 @@
       "price" : 39990.0,
       "quantity" : 9,
       "category" : "Умные часы"
-    }, {
-      "id" : 8,
-      "idOfCell" : 2,
-      "name" : "iPad Air",
-      "price" : 49990.0,
-      "quantity" : 2,
-      "category" : "Планшеты"
-    }, {
-      "id" : 1,
-      "idOfCell" : 2,
-      "name" : "Айфон 13",
-      "price" : 79990.0,
-      "quantity" : 2,
-      "category" : "Смартфоны"
     } ]
   } ],
   "responsiblePerson" : {

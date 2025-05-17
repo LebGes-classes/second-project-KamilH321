@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class SalePoint{
     private Employee responsiblePerson;
     @JsonProperty("employees")
     private List<Employee> employees;
+    @JsonIgnore
+    private boolean isOpen = true;
 
     public SalePoint(){
         this.id = 0;
@@ -39,7 +42,8 @@ public class SalePoint{
         this.responsiblePerson = responsiblePerson;
     }
 
-    public void moveProduct(String name, int quantity, WarehouseCell warehouseCell, Warehouse warehouse){
+    public boolean moveProduct(String name, int quantity, WarehouseCell warehouseCell, Warehouse warehouse){
+        boolean isSend = false;
         for (int i = 0; i < salePointCells.size(); i ++){
             SalePointCell cell = salePointCells.get(i);
             for (int j = 0; j < cell.getProduct().size(); j++){
@@ -51,12 +55,13 @@ public class SalePoint{
                         setIncome(income + resultPrice);
                         warehouse.setIncome(warehouse.getIncome() - resultPrice);
                         warehouseCell.getProductFromSalePoint(currentProduct);
-                        System.out.println("Товар отправлен на склад №: " + warehouse.getId());
+                        isSend = true;
                         break;
                     }
                 }
             }
         }
+        return isSend;
     }
 
     public double calculateIncome(double price, int quantity){
@@ -143,6 +148,16 @@ public class SalePoint{
 
     public void addEmployee(Employee employee){
         employees.add(employee);
+    }
+
+    @JsonIgnore
+    public void setOpen(boolean open) {
+        isOpen = open;
+    }
+
+    @JsonIgnore
+    public boolean isOpen() {
+        return isOpen;
     }
 
     @Override

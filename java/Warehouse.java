@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class Warehouse{
     private Employee responsiblePerson;
     @JsonProperty("employees")
     private List<Employee> employees;
+    @JsonIgnore
+    private boolean isOpen = true;
 
     public Warehouse(){
         this.id = 0;
@@ -133,6 +136,16 @@ public class Warehouse{
 
     public void addEmployee(Employee employee){
         employees.add(employee);
+    }
+
+    @JsonIgnore
+    public void setOpen(boolean open) {
+        isOpen = open;
+    }
+
+    @JsonIgnore
+    public boolean isOpen() {
+        return isOpen;
     }
 
     @Override
