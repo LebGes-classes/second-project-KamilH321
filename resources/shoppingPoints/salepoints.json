@@ -3,7 +3,7 @@
   "address" : "ул. Пушкина, 5",
   "name" : "ТехноМир",
   "countOfSalePointCells" : 3,
-  "income" : 1.207001E8,
+  "income" : 1.2095007E8,
   "salePointCells" : [ {
     "id" : 1,
     "category" : "Смартфоны",
@@ -13,14 +13,14 @@
       "idOfCell" : 1,
       "name" : "Айфон 13",
       "price" : 79990.0,
-      "quantity" : 13,
+      "quantity" : 11,
       "category" : "Смартфоны"
     }, {
       "id" : 2,
       "idOfCell" : 1,
       "name" : "Samsung Galaxy S22",
       "price" : 89990.0,
-      "quantity" : 8,
+      "quantity" : 7,
       "category" : "Смартфоны"
     } ]
   }, {

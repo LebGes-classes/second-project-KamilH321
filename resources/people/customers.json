@@ -1,7 +1,23 @@
 [ {
   "fio" : "Смирнов Александр Петрович",
-  "products" : [ ]
+  "cash" : 30010.0,
+  "products" : [ {
+    "id" : 2,
+    "idOfCell" : 1,
+    "name" : "Samsung Galaxy S22",
+    "price" : 89990.0,
+    "quantity" : 1,
+    "category" : "Смартфоны"
+  } ]
 }, {
   "fio" : "Ковалева Ольга Игоревна",
-  "products" : [ ]
+  "cash" : 150020.0,
+  "products" : [ {
+    "id" : 1,
+    "idOfCell" : 1,
+    "name" : "Айфон 13",
+    "price" : 79990.0,
+    "quantity" : 2,
+    "category" : "Смартфоны"
+  } ]
 } ]

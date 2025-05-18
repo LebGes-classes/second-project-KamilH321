@@ -53,7 +53,6 @@ public class SalePoint{
                     double price = cell.getProduct().get(j).getPrice();
                     Product currentProduct = cell.sendProduct(name, quantity, warehouse);
                     if (cell.isEnough() && currentProduct != null) {
-                        System.out.println(2);
                         double resultPrice = calculateIncome(price, quantity);
                         setIncome(income + resultPrice);
                         warehouse.setIncome(warehouse.getIncome() - resultPrice);
@@ -71,6 +70,30 @@ public class SalePoint{
         double resultPrice;
         resultPrice = price * quantity;
         return resultPrice;
+    }
+
+    public boolean sell(String name, int quantity, Customer customer){
+        boolean isSell = false;
+        for (int i = 0; i < salePointCells.size(); i ++){
+            SalePointCell cell = salePointCells.get(i);
+            for (int j = 0; j < cell.getProduct().size(); j++){
+                if (cell.getProduct().get(j).getName().equals(name) && cell.getProduct() != null){
+                    double price = cell.getProduct().get(j).getPrice();
+                    Product currentProduct = cell.sellProduct(name, quantity, customer);
+                    if (cell.isEnough() && currentProduct != null) {
+                        double resultPrice = calculateIncome(price, quantity);
+                        setIncome(income + resultPrice);
+                        customer.setCash(customer.getCash() - resultPrice);
+                        List<Product> productList = new ArrayList<>();
+                        productList.add(currentProduct);
+                        customer.setProducts(productList);
+                        isSell = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return isSell;
     }
 
     public void setId(int id) {

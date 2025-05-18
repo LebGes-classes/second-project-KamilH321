@@ -164,4 +164,15 @@ public class UI {
             System.out.println();
         }
     }
+
+    public static int choiceCustomer(){
+        List<Customer> customers = Run.customers;
+        System.out.println("<----------------------------------->");
+        System.out.println("Выберите покупателя:");
+        for (int i = 0; i < customers.size(); i++){
+            System.out.println((i + 1) + "." + customers.get(i).getFio());
+        }
+        System.out.println("<----------------------------------->");
+        return customers.size();
+    }
 }

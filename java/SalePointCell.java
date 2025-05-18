@@ -63,6 +63,27 @@ public class SalePointCell {
         return currentProduct;
     }
 
+    public Product sellProduct(String name, int q, Customer customer){
+        Product currentProduct = null;
+        for (Product product: products){
+            if (product.getName().equals(name) && product.getQuantity() - q >= 0){
+                if ((customer.getCash() - product.getPrice() * q) >= 0){
+                    currentProduct = new Product(product.getId(), product.getName(),
+                            product.getPrice(), q, product.getCategory(), this.id);
+                    if (product.getQuantity() == 0){
+                        products.remove(product);
+                        quantity--;
+                    }
+                    product.setQuantity(product.getQuantity() - q);
+                } else {
+                    isEnough = false;
+                    System.out.println("У вас недостаточно средств");
+                }
+            }
+        }
+        return currentProduct;
+    }
+
     public void getProductFromWarehouse(Product product){
         boolean found = false;
         for (Product p : products) {

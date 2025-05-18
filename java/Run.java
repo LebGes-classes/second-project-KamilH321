@@ -63,6 +63,8 @@ public class Run {
                 case2();
                 break;
             case 3:
+                UI.clearConsole();
+                case3();
                 break;
             case 4:
                 UI.clearConsole();
@@ -161,6 +163,50 @@ public class Run {
                 UI.clearConsole();
                 start();
         }
+    }
+
+    public static void case3(){
+        int count = UI.choiceCustomer();
+        while (true){
+            if (scanner.hasNextInt()){
+                int choice = scanner.nextInt();
+                if (choice <= count){
+                    Customer customer = customers.get(choice - 1);
+                    sellProduct(customer);
+                    break;
+                } else {
+                    System.out.println("Такого варианта нет");
+                }
+            } else {
+                scanner.next();
+                System.out.println("Введено не корректное значение, повторите попытку: ");
+            }
+        }
+
+    }
+
+    public static void sellProduct(Customer customer){
+        SalePoint salePoint = getSalePoints();
+        Product product = getProductFromSalePoint(salePoint);
+        System.out.print("Введите кол-во: ");
+        int choice = 0;
+        while (true){
+            if (scanner.hasNextInt()){
+                choice = scanner.nextInt();
+                break;
+
+            } else {
+                scanner.next();
+                System.out.println("Введено не корректное значение, повторите попытку: ");
+            }
+        }
+        boolean isSell = salePoint.sell(product.getName(), choice, customer);
+        if (isSell){
+            System.out.println("Товар " + product.getName() + " в кол-ве " + choice + " куплен");
+        } else {
+            System.out.println("Товар не куплен");
+        }
+        start();
     }
 
     public static void case5(){
