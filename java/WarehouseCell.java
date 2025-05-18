@@ -67,13 +67,16 @@ public class WarehouseCell{
     public void getProductFromSalePoint(Product product){
         boolean found = false;
         for (Product p : products) {
+            System.out.println(product);
             if (p.getName().equals(product.getName())) {
+                System.out.println(1);
                 p.setQuantity(p.getQuantity() + product.getQuantity());
                 found = true;
                 break;
             }
         }
         if (!found) {
+            System.out.println(2);
             products.add(new Product(
                     product.getId(),
                     product.getName(),

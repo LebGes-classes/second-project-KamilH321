@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class Warehouse{
@@ -20,11 +21,12 @@ public class Warehouse{
     private boolean isOpen = true;
 
     public Warehouse(){
+        Random random = new Random();
         this.id = 0;
         this.address = null;
         this.countOfWarehouseCells = 0;
         this.warehouseCells = new ArrayList<>();
-        this.income = 0.0;
+        this.income = random.nextDouble(1000000.0);
         this.responsiblePerson = null;
         this.employees = new ArrayList<>();
     }

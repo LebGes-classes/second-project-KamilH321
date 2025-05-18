@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SalePoint{
     private int id;
@@ -20,12 +21,13 @@ public class SalePoint{
     private boolean isOpen = true;
 
     public SalePoint(){
+        Random random = new Random();
         this.id = 0;
         this.address = null;
         this.name = null;
         this.countOfSalePointCells = 0;
         this.salePointCells = new ArrayList<>();
-        this.income = 0.0;
+        this.income = random.nextDouble(1000000.0);;
         this.responsiblePerson = null;
         this.employees = new ArrayList<>();
     }
@@ -51,6 +53,7 @@ public class SalePoint{
                     double price = cell.getProduct().get(j).getPrice();
                     Product currentProduct = cell.sendProduct(name, quantity, warehouse);
                     if (cell.isEnough() && currentProduct != null) {
+                        System.out.println(2);
                         double resultPrice = calculateIncome(price, quantity);
                         setIncome(income + resultPrice);
                         warehouse.setIncome(warehouse.getIncome() - resultPrice);

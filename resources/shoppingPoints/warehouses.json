@@ -93,33 +93,23 @@
     } ]
   } ],
   "responsiblePerson" : {
-    "fio" : "Иванов Иван Иванович",
-    "post" : "Менеджер склада"
+    "fio" : "Хасанов Камиль Рамилевич",
+    "post" : "Директор"
   },
   "employees" : [ {
     "fio" : "Иванов Иван Иванович",
     "post" : "Менеджер склада"
-  }, {
-    "fio" : "ХасановКамиль",
-    "post" : "Грузчик"
   } ]
 }, {
   "id" : 2,
   "address" : "ул. Пушкина, 15",
   "countOfWarehouseCells" : 4,
-  "income" : 1850000.0,
+  "income" : 1939990.0,
   "warehouseCells" : [ {
     "id" : 1,
     "category" : "Бытовая техника",
-    "quantity" : 2,
+    "quantity" : 1,
     "products" : [ {
-      "id" : 9,
-      "idOfCell" : 1,
-      "name" : "Холодильник Samsung",
-      "price" : 89990.0,
-      "quantity" : 3,
-      "category" : "Бытовая техника"
-    }, {
       "id" : 10,
       "idOfCell" : 1,
       "name" : "Стиральная машина LG",
@@ -154,7 +144,7 @@
   }, {
     "id" : 4,
     "category" : "Аксессуары",
-    "quantity" : 2,
+    "quantity" : 3,
     "products" : [ {
       "id" : 13,
       "idOfCell" : 4,
@@ -169,6 +159,13 @@
       "price" : 2990.0,
       "quantity" : 8,
       "category" : "Аксессуары"
+    }, {
+      "id" : 9,
+      "idOfCell" : 4,
+      "name" : "Холодильник Samsung",
+      "price" : 89990.0,
+      "quantity" : 2,
+      "category" : "Бытовая техника"
     } ]
   } ],
   "responsiblePerson" : {
@@ -184,5 +181,22 @@
   }, {
     "fio" : "Смирнова Елена Викторовна",
     "post" : "Грузчик"
+  }, {
+    "fio" : "Серёга Пират",
+    "post" : "Охранник"
+  } ]
+}, {
+  "id" : 4,
+  "address" : "Кремлёвкая 35",
+  "countOfWarehouseCells" : 0,
+  "income" : 0.0,
+  "warehouseCells" : [ ],
+  "responsiblePerson" : {
+    "fio" : "Райн Гослинг",
+    "post" : "Директор"
+  },
+  "employees" : [ {
+    "fio" : "Валиев Динарис Рашитович",
+    "post" : "инженер"
   } ]
 } ]

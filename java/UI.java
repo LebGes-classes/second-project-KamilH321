@@ -19,6 +19,7 @@ public class UI {
         System.out.println("1.Открыть склад                      ");
         System.out.println("2.Закрыть склад                      ");
         System.out.println("3.Отправить товар в пункт продаж     ");
+        System.out.println("4.Вернутся в главное меню");
         System.out.println("<----------------------------------->");
     }
 
@@ -28,6 +29,7 @@ public class UI {
         System.out.println("2.Закрыть пункт продаж               ");
         System.out.println("3.Отправить товар на склад           ");
         System.out.println("4.Закупить товар со склада           ");
+        System.out.println("5.Вернутся в главное меню");
         System.out.println("<----------------------------------->");
     }
 
@@ -39,6 +41,7 @@ public class UI {
             int id = warehouses.get(i).getId();
             System.out.println((i + 1) + ".Склад №:" + id);
         }
+        System.out.println("0.Закрыть программу");
         System.out.println("<----------------------------------->");
         return warehouses.size();
     }
@@ -51,25 +54,20 @@ public class UI {
             String name = salePoints.get(i).getName();
             System.out.println((i + 1) + "." + name);
         }
+        System.out.println("0.Закрыть программу");
         System.out.println("<----------------------------------->");
         return salePoints.size();
     }
 
-    public static List<Product> warehouseCellChoice(){
-        List<Warehouse> warehouses = Run.warehouse;
+    public static List<Product> warehouseCellChoice(Warehouse warehouse){
         List<Product> productList = new ArrayList<>();
         System.out.println("<----------------------------------->");
         System.out.println("Выберите продукт:                  ");
-        for (int i = 0; i < warehouses.size(); i++){
-            List<WarehouseCell> warehouseCells = warehouses.get(i).getWarehouseCells();
-            for (int j = 0; j < warehouseCells.size(); j++){
-                WarehouseCell warehouseCell = warehouseCells.get(j);
-                List<Product> products = warehouseCell.getProduct();
-                for (int k = 0; k < products.size(); k++){
-                    Product product = products.get(k);
-                    productList.add(product);
-                }
-            }
+        List<WarehouseCell> warehouseCells = warehouse.getWarehouseCells();
+        for (int j = 0; j < warehouseCells.size(); j++){
+            WarehouseCell warehouseCell = warehouseCells.get(j);
+            List<Product> products = warehouseCell.getProduct();
+            productList.addAll(products);
         }
         for (int i = 0; i < productList.size(); i++){
             System.out.println((i+1) + "." + productList.get(i).getName() + " " +
@@ -79,21 +77,15 @@ public class UI {
         return productList;
     }
 
-    public static List<Product> salePointCellChoice(){
-        List<SalePoint> salePoints = Run.salePoints;
+    public static List<Product> salePointCellChoice(SalePoint salePoint){
         List<Product> productList = new ArrayList<>();
         System.out.println("<----------------------------------->");
         System.out.println("Выберите продукт:                  ");
-        for (int i = 0; i < salePoints.size(); i++){
-            List<SalePointCell> salePointCells = salePoints.get(i).getSalePointCells();
-            for (int j = 0; j < salePointCells.size(); j++){
-                SalePointCell salePointCell = salePointCells.get(j);
-                List<Product> products = salePointCell.getProduct();
-                for (int k = 0; k < products.size(); k++){
-                    Product product = products.get(k);
-                    productList.add(product);
-                }
-            }
+        List<SalePointCell> salePointCells = salePoint.getSalePointCells();
+        for (int j = 0; j < salePointCells.size(); j++){
+            SalePointCell salePointCell = salePointCells.get(j);
+            List<Product> products = salePointCell.getProduct();
+            productList.addAll(products);
         }
         for (int i = 0; i < productList.size(); i++){
             System.out.println((i+1) + "." + productList.get(i).getName() + " " +
@@ -137,7 +129,8 @@ public class UI {
         System.out.println("<----------------------------------->");
         System.out.println("1.Уволить сотрудника                 ");
         System.out.println("2.Нанять сотрудника                 ");
-        System.out.println("2.Назначит/сменить ответственное лицо");
+        System.out.println("3.Назначить/сменить ответственное лицо");
+        System.out.println("4.Выйти в главное меню");
         System.out.println("<----------------------------------->");
     }
 
@@ -154,6 +147,15 @@ public class UI {
         for (int i = 0; i < salePoint.getEmployees().size(); i++){
             System.out.println((i + 1) + "." + salePoint.getEmployees().get(i).getFio() + " " + salePoint.getEmployees().get(i).getPost());
         }
+        System.out.println("<----------------------------------->");
+    }
+
+    public static void showPlaceChoice(){
+        System.out.println("<----------------------------------->");
+        System.out.println("Выберите с чем вы хотите работать");
+        System.out.println("1.Склад");
+        System.out.println("2.Пункт продаж");
+        System.out.println("3.Вернуться назад");
         System.out.println("<----------------------------------->");
     }
 

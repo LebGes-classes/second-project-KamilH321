@@ -55,7 +55,7 @@
   "address" : "пр. Ленина, 10",
   "name" : "Электрон",
   "countOfSalePointCells" : 2,
-  "income" : 8.5045E7,
+  "income" : 8.495501E7,
   "salePointCells" : [ {
     "id" : 1,
     "category" : "Телевизоры",
@@ -71,7 +71,7 @@
   }, {
     "id" : 2,
     "category" : "Аксессуары",
-    "quantity" : 1,
+    "quantity" : 2,
     "products" : [ {
       "id" : 5,
       "idOfCell" : 2,
@@ -86,6 +86,13 @@
       "price" : 24990.0,
       "quantity" : 12,
       "category" : "Аксессуары"
+    }, {
+      "id" : 9,
+      "idOfCell" : 2,
+      "name" : "Холодильник Samsung",
+      "price" : 89990.0,
+      "quantity" : 1,
+      "category" : "Бытовая техника"
     } ]
   } ],
   "responsiblePerson" : {

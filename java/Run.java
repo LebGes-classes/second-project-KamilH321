@@ -9,7 +9,7 @@ public class Run {
     public static List<Employee> employees = List.of();
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void start(){
+    public static void readJson(){
         try {
             salePoints = WorkWithJson.readSalePoints("src/main/resources/shoppingPoints/salepoints.json");
             warehouse = WorkWithJson.readWarehouse("src/main/resources/shoppingPoints/warehouses.json");
@@ -19,6 +19,20 @@ public class Run {
             System.err.println("Ошибка чтения файла: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public static void writeToJson(){
+        try {
+            WorkWithJson.writeSalePoints("src/main/resources/shoppingPoints/salepoints.json", salePoints);
+            WorkWithJson.writeWarehouse("src/main/resources/shoppingPoints/warehouses.json", warehouse);
+            WorkWithJson.writeCustomers("src/main/resources/people/customers.json", customers);
+            WorkWithJson.writeEmployees("src/main/resources/people/employees.json", employees);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void start(){
         int choice = 0;
         UI.startWindow();
         while (true){
@@ -65,14 +79,6 @@ public class Run {
             case 7:
                 break;
         }
-
-        try {
-            WorkWithJson.writeSalePoints("src/main/resources/shoppingPoints/salepoints.json", salePoints);
-            WorkWithJson.writeWarehouse("src/main/resources/shoppingPoints/warehouses.json", warehouse);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     public static void case1(){
@@ -81,7 +87,7 @@ public class Run {
         while (true){
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                if (choice <= 3 && choice >= 1){
+                if (choice <= 4 && choice >= 1){
                     break;
                 } else {
                     UI.clearConsole();
@@ -108,6 +114,9 @@ public class Run {
                 UI.clearConsole();
                 sendToSalePoint();
                 break;
+            case 4:
+                UI.clearConsole();
+                start();
         }
     }
 
@@ -117,7 +126,7 @@ public class Run {
         while (true){
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                if (choice <= 4 && choice >= 1){
+                if (choice <= 5 && choice >= 1){
                     break;
                 } else {
                     UI.clearConsole();
@@ -148,6 +157,9 @@ public class Run {
                 UI.clearConsole();
                 sendToSalePointFromWarehouse();
                 break;
+            case 5:
+                UI.clearConsole();
+                start();
         }
     }
 
@@ -202,8 +214,12 @@ public class Run {
         while (true){
             if (scanner.hasNextInt()) {
                 int choice = scanner.nextInt();
-                if (choice <= count){
+                if (choice <= count && choice != 0){
                     return warehouse.get(choice - 1);
+                }
+                else if (choice == 0){
+                    UI.clearConsole();
+                    return null;
                 } else {
                     UI.clearConsole();
                     UI.warehouseChoice();
@@ -223,8 +239,12 @@ public class Run {
         while (true){
             if (scanner.hasNextInt()) {
                 int choice = scanner.nextInt();
-                if (choice <= count){
+                if (choice <= count && choice != 0) {
                     return salePoints.get(choice - 1);
+                }
+                else if (choice == 0){
+                    UI.clearConsole();
+                    return null;
                 } else {
                     UI.clearConsole();
                     UI.salePointChoice();
@@ -240,7 +260,7 @@ public class Run {
     }
 
     public static Product getProduct(Warehouse warehouse){
-        List<Product> productList = UI.warehouseCellChoice();
+        List<Product> productList = UI.warehouseCellChoice(warehouse);
         int choice = 0;
         while (true){
             if (scanner.hasNextInt()) {
@@ -249,8 +269,10 @@ public class Run {
                     List<WarehouseCell> warehouseCellList = warehouse.getWarehouseCells();
                     for (WarehouseCell warehouseCell: warehouseCellList){
                         List<Product> products = warehouseCell.getProduct();
+                        System.out.println(products);
                         for (Product product: products){
                             if (product.getName().equals(productList.get(choice - 1).getName())){
+                                System.out.println("123");
                                 return product;
                             }
                             break;
@@ -267,7 +289,7 @@ public class Run {
     }
 
     public static Product getProductFromSalePoint(SalePoint salePoint){
-        List<Product> productList = UI.salePointCellChoice();
+        List<Product> productList = UI.salePointCellChoice(salePoint);
         int choice = 0;
         while (true){
             if (scanner.hasNextInt()) {
@@ -280,7 +302,6 @@ public class Run {
                             if (product.getName().equals(productList.get(choice - 1).getName())){
                                 return product;
                             }
-                            break;
                         }
                     }
                 } else {
@@ -400,7 +421,7 @@ public class Run {
 
     public static void openWarehouse(){
         warehouse.add(new Warehouse());
-        System.out.println("Введите id склада: ");
+        System.out.print("Введите id склада: ");
         int id = 0;
         while (true){
             if (scanner.hasNextInt()) {
@@ -408,6 +429,19 @@ public class Run {
                 Warehouse warehouse1 = warehouse.getLast();
                 warehouse1.setOpen(true);
                 warehouse1.setId(id);
+                System.out.print("Введите адресс: ");
+                String address = "";
+                scanner.nextLine();
+                while (true){
+                    address = scanner.nextLine();
+                    if (!address.isEmpty()){
+                        break;
+                    }
+                    else{
+                        System.out.print("Вы ничего не ввели, повторите ввод: ");
+                    }
+                }
+                warehouse1.setAddress(address);
                 System.out.println("Склад № " + id + " открыт");
                 break;
             } else {
@@ -415,33 +449,36 @@ public class Run {
                 scanner.next();
             }
         }
+        case1();
     }
 
     public static void openSalePoint(){
-        System.out.println("Введите название магазина: ");
+        System.out.print("Введите название магазина: ");
         salePoints.add(new SalePoint());
         String name = "";
         String address = "";
+        scanner.nextLine();
         while (true){
-            name = scanner.next();
-            if (!name.equals("")){
+            name = scanner.nextLine();
+            if (!name.isEmpty()){
                 break;
             }
-            scanner.next();
+            System.out.print("Вы ничего не ввели, повторите ввод: ");
         }
-        System.out.println("Введите адрес: ");
+        System.out.print("Введите адрес: ");
         while (true){
-            address = scanner.next();
-            if (!address.equals("")){
+            address = scanner.nextLine();
+            if (!address.isEmpty()){
                 break;
             }
-            scanner.next();
+            System.out.print("Вы ничего не ввели, повторите ввод: ");
         }
         SalePoint salePoint = salePoints.getLast();
         salePoint.setOpen(true);
         salePoint.setName(name);
         salePoint.setAddress(address);
         System.out.println("Магазин " + name + " открыт");
+        case2();
     }
 
     public static void closeWarehouse(){
@@ -499,7 +536,7 @@ public class Run {
         while (true){
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                if (choice <= 2){
+                if (choice <= 4){
                     break;
                 } else {
                     System.out.println("Такого варианта нет");
@@ -520,19 +557,21 @@ public class Run {
                 break;
             case 3:
                 UI.clearConsole();
+                placeChoice(choice);
                 break;
+            case 4:
+                UI.clearConsole();
+                start();
         }
     }
 
     public static void placeChoice(int ch){
-        System.out.println("Выберите с чем вы хотите работать");
-        System.out.println("1.Склад");
-        System.out.println("2.Пункт продаж");
+        UI.showPlaceChoice();
         int choice = 0;
         while (true){
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                if (choice <= warehouse.size()){
+                if (choice <= 3){
                     break;
                 } else {
                     System.out.println("Такого варианта нет");
@@ -548,9 +587,14 @@ public class Run {
                 workWithW(ch);
                 break;
             case 2:
+                UI.clearConsole();
                 workWithS(ch);
                 break;
+            case 3:
+                UI.clearConsole();
+                workWithEmployee();
         }
+
     }
 
     public static void workWithW(int ch){
@@ -567,7 +611,11 @@ public class Run {
                         employees1.remove(employees1.get(choice - 1));
                         warehouse1.setEmployees(employees1);
                         System.out.println(warehouse1);
-                        employees = employees1;
+                        for (int i = 0; i < employees1.size(); i++){
+                            if (!employees.contains(employees1.get(i))){
+                                employees.add(employees1.get(i));
+                            }
+                        }
                         break;
                     } else {
                         System.out.println("Такого сотрудника нет");
@@ -582,26 +630,46 @@ public class Run {
         else if (ch == 2){
             String fio = "";
             String post = "";
-            System.out.println("Введите ФИО сотрудника");
+            System.out.print("Введите ФИО сотрудника: ");
+            scanner.nextLine();
             while (true){
-                fio = scanner.next();
-                if (!fio.equals("")){
+                fio = scanner.nextLine();
+                if (!fio.trim().isEmpty()){
                     break;
                 }
-                scanner.next();
+                System.out.print("Вы ничего не ввели, повторите ввод: ");
             }
-            System.out.println("Введите должность");
+            System.out.print("Введите должность: ");
             while (true){
-                post = scanner.next();
-                if (!post.equals("")){
+                post = scanner.nextLine();
+                if (!post.trim().isEmpty()){
                     break;
                 }
-                scanner.next();
+                System.out.print("Вы ничего не ввели, повторите ввод: ");
             }
             employees1.add(new Employee(fio, post));
             warehouse1.setEmployees(employees1);
-            employees = employees1;
+            for (int i = 0; i < employees1.size(); i++){
+                if (!employees.contains(employees1.get(i))){
+                    employees.add(employees1.get(i));
+                }
+            }
             System.out.println("Сотрудник " + fio + " добавлен");
+        }
+        else if (ch == 3){
+            String fio = "";
+            System.out.print("Введите ФИО: ");
+            scanner.nextLine();
+            while (true){
+                fio = scanner.nextLine();
+                if (!fio.trim().isEmpty()){
+                    break;
+                }
+                System.out.print("Вы ничего не ввели, повторите ввод: ");
+            }
+            warehouse1.setResponsiblePerson(new Employee(fio, "Директор"));
+            employees.add(warehouse1.getResponsiblePerson());
+
         }
         start();
     }
@@ -619,7 +687,11 @@ public class Run {
                         System.out.println("Сотрудник " + employees1.get(choice - 1).getFio() + " уволен");
                         employees1.remove(employees1.get(choice - 1));
                         salePoint.setEmployees(employees1);
-                        employees = employees1;
+                        for (int i = 0; i < employees1.size(); i++){
+                            if (!employees.contains(employees1.get(i))){
+                                employees.add(employees1.get(i));
+                            }
+                        }
                         break;
                     } else {
                         System.out.println("Такого сотрудника нет");
@@ -633,26 +705,48 @@ public class Run {
         else if (ch == 2){
             String fio = "";
             String post = "";
-            System.out.println("Введите ФИО сотрудника");
+            System.out.print("Введите ФИО сотрудника: ");
+            scanner.nextLine();
             while (true) {
-                fio = scanner.next();
-                if (!fio.equals("")) {
+                fio = scanner.nextLine();
+                if (!fio.trim().isEmpty()) {
                     break;
                 }
-                scanner.next();
+                System.out.print("Вы ничего не ввели, повторите ввод: ");
             }
-            System.out.println("Введите должность");
+            System.out.print("Введите должность: ");
+            scanner.nextLine();
             while (true) {
-                post = scanner.next();
-                if (!post.equals("")) {
+                post = scanner.nextLine();
+                if (!post.trim().isEmpty()) {
                     break;
                 }
-                scanner.next();
+                System.out.print("Вы ничего не ввели, повторите ввод: ");
             }
             employees1.add(new Employee(fio, post));
             salePoint.setEmployees(employees1);
-            employees = employees1;
+            for (int i = 0; i < employees1.size(); i++){
+                if (!employees.contains(employees1.get(i))){
+                    employees.add(employees1.get(i));
+                }
+            }
             System.out.println("Сотрудник " + fio + " добавлен");
+        }
+
+        else if (ch == 3){
+            String fio = "";
+            System.out.print("Введите ФИО: ");
+            scanner.nextLine();
+            while (true){
+                fio = scanner.nextLine();
+                if (!fio.trim().isEmpty()){
+                    break;
+                }
+                System.out.print("Вы ничего не ввели, повторите ввод: ");
+            }
+            salePoint.setResponsiblePerson(new Employee(fio, "Директор"));
+            employees.add(salePoint.getResponsiblePerson());
+
         }
         start();
     }

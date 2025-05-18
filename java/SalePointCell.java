@@ -54,7 +54,10 @@ public class SalePointCell {
                     product.setQuantity(product.getQuantity() - q);
                 } else {
                     isEnough = false;
+                    System.out.println("У склада недостаточно средств");
                 }
+            } else {
+                System.out.println("Вы не можете отправить больше " + product.getQuantity() + " шт");
             }
         }
         return currentProduct;
